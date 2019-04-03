@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.main{
+  width: 90vw;
+  max-width: 1000px;
+  margin: 15px auto;
+  padding: 15px 0;
+  background-color: lavender;
+  height: 75vh;
+}

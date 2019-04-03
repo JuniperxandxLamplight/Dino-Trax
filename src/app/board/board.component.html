@@ -1,0 +1,21 @@
+<div *ngIf="activeBoard">
+  <div *ngIf="!threadShown">
+    <div *ngFor="let thread of threads">
+      <div class="thread threadTeaser" (click)="threadShown=!threadShown;loadThread(thread);activeThread=thread">
+        <h3>{{thread.post.title}}</h3>
+        <p>{{thread.post.content}}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="threadShown">
+    <div class="thread" (click)="threadShown=!threadShown">
+      <h2>{{activeThread.post.title}}</h2>
+      <h6 class="tagline">{{activeThread.post.content}}</h6>
+      <br><br>
+      <div *ngFor="let reply of replies">
+        <p class='userName'>randomUser</p>
+        <p class="reply">{{reply}}</p>
+      </div>
+    </div>
+  </div>
+</div>

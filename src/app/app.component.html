@@ -1,22 +1,15 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="">Dino Trax</a>
+<div class="main container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" routerLink="welcome"><h1>Dino Trax</h1></a>
+      </div>
+      <h5 *ngFor="let board of boards | async" routerLink="board" (click)="activeBoard =board;loadBoard(board);threadShown=false">{{board['$key']}}</h5>
     </div>
-    <p *ngFor="let board of boards | async" (click)="activeBoard =board;loadBoard(board)">{{board['$key']}}</p>
-  </div>
-</nav>
+  </nav>
 
 
-
-<div class="container">
-  <h1>{{title}}</h1>
-  <div *ngIf="activeBoard">
-    <div *ngFor="let thread of threads">
-      <p (click)="threadShown=!threadShown; storable(activeBoard[thread])">{{thread}}</p>
-    </div>
-    <p *ngIf="threadShown">{{posts}}</p>
-  </div>
+  <app-board [activeBoard]="activeBoard" [threadShown]="threadShown" [threads]="threads"></app-board>
   <router-outlet></router-outlet>
 </div>
 
