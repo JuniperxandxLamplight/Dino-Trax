@@ -1,8 +1,7 @@
 import { Post } from './post.model';
 
 export class Thread {
-  content: Post[] = [];
 
-  constructor (public title: string, public postCount: number) {}
+  constructor (public title: string, public image: string, public content: string) {}
 
 }
